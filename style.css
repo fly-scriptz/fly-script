@@ -1,0 +1,413 @@
+/* –––––– ultra premium dark reset –––––– */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow: hidden;
+    position: relative;
+    background: #06060e;
+}
+
+/* –––––– animated mesh gradient background –––––– */
+.bg-mesh {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background:
+        radial-gradient(ellipse at 20% 50%, rgba(40, 80, 200, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 50%, rgba(100, 50, 220, 0.06) 0%, transparent 60%),
+        radial-gradient(ellipse at 50% 100%, rgba(0, 200, 255, 0.04) 0%, transparent 50%);
+    animation: meshPulse 8s ease-in-out infinite alternate;
+}
+@keyframes meshPulse {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* –––––– subtle grid –––––– */
+.bg-grid {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background-image:
+        linear-gradient(rgba(100, 180, 255, 0.012) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(100, 180, 255, 0.012) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: gridMove 40s linear infinite;
+}
+@keyframes gridMove {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+}
+
+/* –––––– floating orbs (very dim) –––––– */
+.orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(150px);
+    opacity: 0.025;
+    z-index: 0;
+    animation: orbFloat 25s ease-in-out infinite alternate;
+}
+.orb-1 {
+    width: 700px;
+    height: 700px;
+    background: #4a8cff;
+    top: -30%;
+    left: -30%;
+}
+.orb-2 {
+    width: 600px;
+    height: 600px;
+    background: #2a5faa;
+    bottom: -30%;
+    right: -30%;
+    animation-delay: 8s;
+}
+.orb-3 {
+    width: 500px;
+    height: 500px;
+    background: #6a4aff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: 15s;
+}
+@keyframes orbFloat {
+    0%   { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(60px, -60px) scale(1.15); }
+}
+
+/* –––––– premium glass card (with blur-in animation) –––––– */
+.loader-card {
+    position: relative;
+    z-index: 1;
+    width: 580px;
+    max-width: 94vw;
+    background: rgba(8, 8, 18, 0.88);
+    backdrop-filter: blur(40px) saturate(1.2);
+    border: 1px solid rgba(100, 180, 255, 0.08);
+    border-radius: 40px;
+    padding: 50px 48px 40px;
+    box-shadow:
+        0 0 100px rgba(0, 0, 0, 0.9),
+        0 30px 80px rgba(0, 0, 0, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.02);
+    text-align: center;
+
+    /* ---- BLUR OPENING EFFECT ---- */
+    animation: blurIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes blurIn {
+    0% {
+        filter: blur(12px);
+        opacity: 0;
+        transform: scale(0.96);
+    }
+    100% {
+        filter: blur(0);
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* –––––– domain: Script.sec –––––– */
+.domain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 2px;
+    flex-wrap: wrap;
+}
+.domain h1 {
+    font-size: 1.9rem;
+    font-weight: 650;
+    letter-spacing: -0.5px;
+    color: #eef4ff;
+    text-shadow: 0 0 40px rgba(100, 170, 255, 0.04);
+    background: linear-gradient(135deg, #eef4ff 60%, #8ab8ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.domain .tld {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #8ab8ff;
+    background: rgba(100, 170, 255, 0.06);
+    padding: 2px 16px;
+    border-radius: 40px;
+    border: 1px solid rgba(100, 170, 255, 0.08);
+    letter-spacing: 0.8px;
+    -webkit-text-fill-color: #8ab8ff;
+}
+.domain .version {
+    font-size: 0.6rem;
+    font-weight: 400;
+    color: #4a6a8a;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 2px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    letter-spacing: 0.3px;
+    -webkit-text-fill-color: #4a6a8a;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.sub-badge {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #5a7a9a;
+    margin-top: 4px;
+    margin-bottom: 32px;
+    padding: 4px 16px;
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    border-radius: 40px;
+    background: rgba(255, 255, 255, 0.01);
+    font-family: 'JetBrains Mono', monospace;
+}
+.sub-badge span {
+    color: #8ab8ff;
+    opacity: 0.5;
+}
+
+/* –––––– dynamic loading text –––––– */
+.loading-text {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #6a8aaa;
+    margin-bottom: 16px;
+    font-weight: 400;
+    min-height: 1.2em;
+    transition: opacity 0.3s ease;
+    font-family: 'JetBrains Mono', monospace;
+}
+.loading-text .cursor {
+    display: inline-block;
+    width: 2px;
+    height: 0.9em;
+    background: #8ab8ff;
+    margin-left: 4px;
+    animation: blink 1s step-end infinite;
+    vertical-align: text-bottom;
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* –––––– progress bar –––––– */
+.progress-track {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    position: relative;
+    box-shadow: inset 0 1px 4px rgba(0,0,0,0.7);
+}
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #6aafff, #b8d6ff, #6aafff);
+    background-size: 200% 100%;
+    border-radius: 10px;
+    transition: width 0.05s linear;
+    animation: shimmer 3s linear infinite;
+    opacity: 0.7;
+}
+@keyframes shimmer {
+    0%   { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.percent-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+    color: #5a7a9a;
+    margin-bottom: 28px;
+    font-family: 'JetBrains Mono', monospace;
+}
+.percent-row .num {
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: #c8dfff;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+.percent-row .eta {
+    font-size: 0.65rem;
+    color: #4a6a8a;
+}
+
+/* –––––– loader wrapper –––––– */
+.loader-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 2;
+}
+
+/* –––––– AUTHENTIC CIRCLE LOADER with GITHUB LOGO –––––– */
+.circle-loader {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Rotating scanner ring */
+.circle-loader .scanner-ring {
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top: 2px solid rgba(138, 184, 255, 0.4);
+    border-right: 2px solid rgba(138, 184, 255, 0.15);
+    animation: spin 2.5s linear infinite;
+    filter: drop-shadow(0 0 10px rgba(138, 184, 255, 0.1));
+}
+
+/* GitHub Logo inside */
+.circle-loader .github-icon {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    z-index: 4;
+    fill: #8ab8ff;
+    filter: drop-shadow(0 0 25px rgba(138, 184, 255, 0.15));
+    opacity: 0.85;
+    animation: iconPulse 2s ease-in-out infinite;
+}
+@keyframes iconPulse {
+    0%, 100% { transform: scale(1); opacity: 0.85; }
+    50% { transform: scale(1.04); opacity: 1; }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Pulse rings (outer & inner) */
+.circle-loader::before,
+.circle-loader::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    animation: 1.8s ease-in-out infinite;
+    filter: drop-shadow(0 0 12px rgba(138, 184, 255, 0.08));
+}
+
+/* Outer Pulse */
+.circle-loader::before {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: inset 0 0 0 20px rgba(138, 184, 255, 0.15);
+    animation-name: pulseA;
+}
+
+/* Inner Pulse */
+.circle-loader::after {
+    width: 136px;
+    height: 136px;
+    top: 22px;
+    left: 22px;
+    box-shadow: 0 0 0 0 rgba(138, 184, 255, 0.2);
+    animation-name: pulseB;
+}
+
+@keyframes pulseA {
+    0% {
+        box-shadow: inset 0 0 0 20px rgba(138, 184, 255, 0.2);
+        opacity: 0.8;
+    }
+    50%, 100% {
+        box-shadow: inset 0 0 0 0 rgba(138, 184, 255, 0);
+        opacity: 0;
+    }
+}
+
+@keyframes pulseB {
+    0%, 50% {
+        box-shadow: 0 0 0 0 rgba(138, 184, 255, 0);
+        opacity: 0;
+    }
+    100% {
+        box-shadow: 0 0 0 20px rgba(138, 184, 255, 0.15);
+        opacity: 0.8;
+    }
+}
+
+/* –––––– status line –––––– */
+.status-line {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    font-size: 0.6rem;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    color: #4a6a8a;
+    letter-spacing: 0.2px;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(255, 255, 255, 0.02);
+    padding-top: 18px;
+}
+.status-line .dot {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    margin-right: 4px;
+    animation: pulseDot 2s ease-in-out infinite;
+}
+.status-line .dot.blue { background: #8ab8ff; box-shadow: 0 0 12px rgba(100, 170, 255, 0.06); }
+.status-line .dot.blue.d2 { animation-delay: 0.5s; }
+.status-line .dot.blue.d3 { animation-delay: 1s; }
+@keyframes pulseDot {
+    0%, 100% { opacity: 0.1; transform: scale(0.6); }
+    50% { opacity: 0.9; transform: scale(1.3); }
+}
+.status-line .label {
+    color: #5a7a9a;
+    font-weight: 400;
+}
+.status-line .value {
+    color: #b0c8e6;
+    font-weight: 400;
+}
+.status-line .highlight {
+    color: #8ab8ff;
+    opacity: 0.6;
+}
+
+/* –––––– responsive –––––– */
+@media (max-width: 480px) {
+    .loader-card { padding: 28px 18px 24px; }
+    .domain h1 { font-size: 1.4rem; }
+    .circle-loader { transform: scale(0.75); }
+    .status-line { gap: 12px; font-size: 0.5rem; }
+}
